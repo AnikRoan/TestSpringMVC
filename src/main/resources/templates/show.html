@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h2>
+    you are welcome
+</h2>
+<br>
+Your name: <span th:text="${employee.name}"></span>
+Your surname: <span th:text="${employee.surname}"></span>
+Your salary: <span th:text="${employee.salary}"></span>
+Your department: <span th:text="${employee.department}"></span>
+<!--Your name: <span th:text="${nameAtribut}"></span>-->
+
+<!--Your name: <span th:text="${nameAtribut}+''+${description}"></span>-->
+<!--передаем параметры через модель в контроллере-->
+</body>
+</html>

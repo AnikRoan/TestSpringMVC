@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+
+<body>
+
+<h2>
+    Enter you detail
+</h2>
+<br>
+
+<!--<form action="show" method="get">-->
+<!--    <input type="text" name="employeeName"-->
+<!--           placeholder="write your name"/>-->
+<!--    <input type="submit"/>-->
+
+<form th:action="@{/show}" th:object="${employee}" method="post">
+    Name: <input type="text" th:field="*{name}" />
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error for name</div>
+    Surname: <input type="text" th:field="*{surname}" />
+    <div th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Error for surname</div>
+    Salary: <input type="text" th:field="*{salary}" />
+    <select th:field="*{department}">
+        <option value="Information">IT</option>
+        <option value="Human">HR</option>
+        <option value="Technology">Sales</option>
+    </select>
+    <input type="submit" value="Submit" />
+</form>
+
+
+
+
+</form>
+
+
+</body>
+</html>

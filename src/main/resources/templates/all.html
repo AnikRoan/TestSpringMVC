@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Employees</title>
+</head>
+<body>
+<h2>Employee List</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.getId()}"></td>
+        <td th:text="${employee.getName()}"></td>
+        <td th:text="${employee.getSurname()}"></td>
+        <td th:text="${employee.getDepartment()}"></td>
+        <td th:text="${employee.getSalary()}"></td>
+        <td><button th:onclick="'window.location.href=\'' + @{/updateEmployee/{id}(id=${employee.id})} + '\''">Update</button></td>
+        <td><button th:onclick="'window.location.href=\'' + @{/deleteEmployee/{id}(id=${employee.id})} + '\''">Delete</button></td>
+    </tr>
+    </tbody>
+</table>
+<button th:onclick="'window.location.href=\'' + @{/addEmp} + '\''">Click Me</button>
+
+</body>
+</html>
